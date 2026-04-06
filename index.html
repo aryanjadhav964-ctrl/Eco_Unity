@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Unity - Mira Bhayandar Environmental Platform</title>
+    <meta name="description" content="A centralized platform linking residents, volunteers, and local government for environmental projects in Mira Bhayandar.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Real-time Notifications Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-leaf text-accent"></i> <span>Eco<span class="text-accent">Unity</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#dashboard">Impact Dashboard</a></li>
+                <li><a href="#feedback">Feedback</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn btn-outline" id="btnLogin">Login</button>
+                <button class="btn btn-primary" id="btnRegister">Join Us</button>
+                <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-bg-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+            <div class="container hero-content">
+                <div class="hero-text glass-panel">
+                    <div class="badge">Mira Bhayandar Initiative</div>
+                    <h1>Together, We Can <br>Heal Our <span class="text-accent">Environment</span></h1>
+                    <p>Join the centralized platform linking residents, volunteers, and local government to drive impactful environmental change in our community. Track activities, sign up for events, and make a real difference.</p>
+                    <div class="hero-btns">
+                        <a href="#activities" class="btn btn-primary btn-lg">Explore Activities</a>
+                        <a href="#dashboard" class="btn btn-outline btn-lg">View Our Impact</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities / Info Portal -->
+        <section id="activities" class="section py-xl">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>Centralized <span class="text-accent">Information Portal</span></h2>
+                    <p>Discover ongoing and upcoming environmental projects in Mira Bhayandar. Participate and earn certificates.</p>
+                </div>
+                <div class="activities-grid" id="activitiesGrid">
+                    <!-- Cards will be populated dynamically by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Dashboard -->
+        <section id="dashboard" class="section bg-light py-xl">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>Activity Tracking & <span class="text-accent">Reports</span></h2>
+                    <p>Real-time statistics on community participation and our positive environmental impact.</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card glass-panel text-center">
+                        <i class="fa-solid fa-tree text-accent stat-icon"></i>
+                        <h3 class="stat-number" data-target="15420">0</h3>
+                        <p>Trees Planted</p>
+                    </div>
+                    <div class="stat-card glass-panel text-center">
+                        <i class="fa-solid fa-recycle text-accent stat-icon"></i>
+                        <h3 class="stat-number" data-target="8500">0</h3>
+                        <p>Kg Recycled</p>
+                    </div>
+                    <div class="stat-card glass-panel text-center">
+                        <i class="fa-solid fa-users text-accent stat-icon"></i>
+                        <h3 class="stat-number" data-target="3200">0</h3>
+                        <p>Active Volunteers</p>
+                    </div>
+                    <div class="stat-card glass-panel text-center">
+                        <i class="fa-solid fa-bolt text-accent stat-icon"></i>
+                        <h3 class="stat-number" data-target="450">0</h3>
+                        <p>Energy MWh Saved</p>
+                    </div>
+                </div>
+                <div class="reports-area mt-lg">
+                    <div class="report-panel glass-panel">
+                        <h3>Recent Impact Photos</h3>
+                        <div class="photo-grid" id="photoGrid">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feedback & Engagement -->
+        <section id="feedback" class="section py-xl">
+            <div class="container">
+                <div class="feedback-container">
+                    <div class="feedback-info">
+                        <h2>Community <span class="text-accent">Feedback & Engagement</span></h2>
+                        <p>Your voice matters! Share your suggestions, review past events, and interact with the community. Together we build better environmental strategies.</p>
+                        <div class="feedback-stats">
+                            <div class="f-stat"><i class="fa-solid fa-star text-warning"></i> 4.8/5 Avg Rating</div>
+                            <div class="f-stat"><i class="fa-solid fa-comments text-accent"></i> 1.2k Suggestions Implemented</div>
+                        </div>
+                    </div>
+                    <div class="feedback-form-wrapper glass-panel">
+                        <form id="feedbackForm" class="form">
+                            <div class="form-group">
+                                <label for="fName">Name</label>
+                                <input type="text" id="fName" class="form-control" required placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="fTopic">Topic / Event</label>
+                                <select id="fTopic" class="form-control" required>
+                                    <option value="" disabled selected>Select an area</option>
+                                    <option value="tree">Tree Plantation</option>
+                                    <option value="recycling">Recycling Initiative</option>
+                                    <option value="cleanliness">Cleanliness Drive</option>
+                                    <option value="energy">Energy Conservation</option>
+                                    <option value="other">General Suggestion</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="fMessage">Your Feedback/Suggestion</label>
+                                <textarea id="fMessage" class="form-control" rows="4" required placeholder="How can we improve?"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Submit Feedback</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo text-white">
+                    <i class="fa-solid fa-leaf text-accent"></i> <span>Eco<span class="text-accent">Unity</span></span>
+                </a>
+                <p>Empowering the Mira Bhayandar community for a sustainable, green, and resilient future.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#activities">Information Portal</a></li>
+                    <li><a href="#dashboard">Reports</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Support</h4>
+                <p><i class="fa-solid fa-envelope"></i> admin@ecounity.mb.gov.in</p>
+                <p><i class="fa-solid fa-phone"></i> +91 800-ECO-UNITY</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Eco Unity Platform. Built for the Mira Bhayandar Community.</p>
+        </div>
+    </footer>
+
+    <!-- Auth Modal (Login/Register) -->
+    <div class="modal-overlay" id="authModalOverlay">
+        <div class="modal glass-panel" id="authModal">
+            <button class="modal-close" id="closeAuthModal"><i class="fa-solid fa-times"></i></button>
+            
+            <div class="auth-box">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="register">Register</button>
+                </div>
+                
+                <!-- Login Form -->
+                <form id="loginForm" class="form auth-form active-form">
+                    <h3 class="mb-md">Welcome Back to <span class="text-accent">Eco Unity</span></h3>
+                    <div class="form-group">
+                        <label for="loginEmail">Email / Volunteer ID</label>
+                        <input type="email" id="loginEmail" class="form-control" required placeholder="volunteer@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" class="form-control" required placeholder="********">
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-label"><input type="checkbox"> Remember me</label>
+                        <a href="#" class="forgot-link text-accent">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 mt-md">Login as Volunteer</button>
+                </form>
+                
+                <!-- Register Form -->
+                <form id="registerForm" class="form auth-form">
+                    <h3 class="mb-md">Join as a <span class="text-accent">Volunteer</span></h3>
+                    <div class="form-group">
+                        <label for="regName">Full Name</label>
+                        <input type="text" id="regName" class="form-control" required placeholder="Jane Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="regEmail">Email Address</label>
+                        <input type="email" id="regEmail" class="form-control" required placeholder="jane@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="regArea">Neighborhood / Ward</label>
+                        <input type="text" id="regArea" class="form-control" required placeholder="E.g., Bhayandar West">
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword">Password</label>
+                        <input type="password" id="regPassword" class="form-control" required placeholder="Create a strong password">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 mt-md">Complete Registration</button>
+                    <p class="text-center mt-sm text-muted" style="font-size: 0.85rem;">Participants receive official verifiable certificates for attended events.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+</body>
+</html>
